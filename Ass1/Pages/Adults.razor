@@ -114,7 +114,8 @@ else
     }
     private async Task RemoveAdult(Adult adult)
     {
-        FamiliesManager.RemoveAdultAsync(adult);
+        
+        await FamiliesManager.RemoveAdultAsync(adult);
         allAdults.Remove(adult);
     }
 

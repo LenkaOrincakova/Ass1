@@ -57,9 +57,9 @@
 
 @code {
     private Ass1.Models.Adult newAdultItem = new Ass1.Models.Adult();
-    private async Task AddNewAdultAsync()
+    private void AddNewAdultAsync()
     {
-       await FamiliesManager.AddAdultToFamilyAsync(newAdultItem);
+        FamiliesManager.AddAdultToFamilyAsync(newAdultItem);
         NavigationManager.NavigateTo("/adults");
     }
 }

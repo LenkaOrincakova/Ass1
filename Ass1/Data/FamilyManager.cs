@@ -12,13 +12,13 @@ namespace Ass1.Data
     public class FamilyManager : IFamilyManager
     {
         private readonly FileContext familyFileHandler;
-       
+
         public FamilyManager()
         {
             familyFileHandler = new FileContext();
         }
-       
-        
+
+
         public bool AddAdultToFamily(Adult adultToAdd)//, Family familyToJoin)
         {
             //IList<Family> families = familyFileHandler.Families;
@@ -36,14 +36,14 @@ namespace Ass1.Data
             //}
             //if (family.Adults.Count<2)
             //{
-                int maxId = adults.Any() ? adults.Max(a => a.Id) : 0;
+            int maxId = adults.Any() ? adults.Max(a => a.Id) : 0;
 
-                if (adults.Any(a => a.Equals(adultToAdd)))
-                    throw new Exception($"{adultToAdd.FirstName} {adultToAdd.LastName} not load");
-                adultToAdd.Id = ++maxId;
-                adults.Add(adultToAdd);
-                familyFileHandler.SaveChanges();
-                return true;
+            if (adults.Any(a => a.Equals(adultToAdd)))
+                throw new Exception($"{adultToAdd.FirstName} {adultToAdd.LastName} not load");
+            adultToAdd.Id = ++maxId;
+            adults.Add(adultToAdd);
+            familyFileHandler.SaveChanges();
+            return true;
 
             //}
             //else
@@ -51,11 +51,11 @@ namespace Ass1.Data
             //    throw new Exception("Family already has 2 adults");
             //} 
         }
-     
+
 
         public IList<Adult> GetAdults()
         {
-           
+
             IList<Adult> adults = familyFileHandler.Adults;
             return adults;
         }
@@ -63,14 +63,14 @@ namespace Ass1.Data
         public void RemoveAdult(Adult adult)
         {
             IList<Adult> adults = familyFileHandler.Adults;
-            
-                if (adults.Contains(adult))
-                {
-                 adults.Remove(adult);
+
+            if (adults.Contains(adult))
+            {
+                adults.Remove(adult);
                 familyFileHandler.SaveChanges();
 
-                 }
-         }
+            }
+        }
 
         private IList<Adult> CollectAdults(IList<Family> families)
         {

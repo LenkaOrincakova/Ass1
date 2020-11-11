@@ -27,7 +27,9 @@ namespace Ass1.Data.Impl
 
         public async Task<IList<Adult>> GetAdultsAsync()
         {
-            string message = await client.GetStringAsync(uri + "/adults");
+           
+            Task<string> stringAsync = client.GetStringAsync(uri + "/adults");
+            string message = await stringAsync;
             
             List<Adult> result = JsonSerializer.Deserialize<List<Adult>>(message);
             return result;
