@@ -9,10 +9,11 @@ namespace Ass1.Data
     interface IFamilyManager
     {
        
-        bool AddAdultToFamily(Adult adultToAdd);
+        Task AddAdultToFamilyAsync(Adult adultToAdd);
 
-        IList<Adult> GetAdults();
-        void RemoveAdult(Adult adult);
+        Task<IList<Adult>> GetAdultsAsync();
+        Task RemoveAdultAsync(Adult adult);
+        Task UpdateAsync(Adult adult);
         // IList<Family> GetFamilies();
         //  bool AddFamily(Family toAdd);
         // bool RemoveFamily(Family toRemove);

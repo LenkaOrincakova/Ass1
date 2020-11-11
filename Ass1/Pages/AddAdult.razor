@@ -13,7 +13,7 @@
 }
 
 
-<EditForm Model="@newAdultItem" OnValidSubmit="@AddNewAdult">
+<EditForm Model="@newAdultItem" OnValidSubmit="@AddNewAdultAsync">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -57,9 +57,9 @@
 
 @code {
     private Ass1.Models.Adult newAdultItem = new Ass1.Models.Adult();
-    private void AddNewAdult()
+    private async Task AddNewAdultAsync()
     {
-        FamiliesManager.AddAdultToFamily(newAdultItem);
+       await FamiliesManager.AddAdultToFamilyAsync(newAdultItem);
         NavigationManager.NavigateTo("/adults");
     }
 }

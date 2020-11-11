@@ -109,12 +109,12 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        allAdults = FamiliesManager.GetAdults();
+        allAdults = await FamiliesManager.GetAdultsAsync();
         adultsToShow = allAdults;
     }
-    private void RemoveAdult(Adult adult)
+    private async Task RemoveAdult(Adult adult)
     {
-        FamiliesManager.RemoveAdult(adult);
+        FamiliesManager.RemoveAdultAsync(adult);
         allAdults.Remove(adult);
     }
 

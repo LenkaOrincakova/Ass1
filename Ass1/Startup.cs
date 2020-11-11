@@ -31,7 +31,7 @@ namespace Ass1
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<IFamilyManager, FamilyManager>();
+            services.AddSingleton<IFamilyManager, CloudFamilyManager>();
             services.AddScoped<IUserService, InMemoryUserService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
 
